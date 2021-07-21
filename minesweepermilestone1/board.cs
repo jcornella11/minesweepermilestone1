@@ -135,5 +135,44 @@ namespace minesweepermilestone1
                 }
             }
         }
+
+        public void floodFill(int j, int k) 
+        {
+            //8 Direction Flood Fill
+            grid[j, k].visited = true;
+
+            //South
+            if (grid[j, k + 1].liveNeighbors == 0) 
+            {
+                floodFill(j, k + 1);
+            }
+            //West
+            if (grid[j - 1, k].liveNeighbors == 0) 
+            {
+                floodFill(j - 1, k);
+            }
+            //North
+            if (grid[j, k - 1].liveNeighbors == 0)
+            {
+                floodFill(j, k - 1);
+            }
+            //East
+            if (grid[j + 1, k].liveNeighbors == 0) 
+            {
+                floodFill(j+1, k);
+            }
+            //South East
+            if (grid[j + 1, k + 1].liveNeighbors == 0) 
+            {
+                floodFill(j + 1, k + 1);
+            }
+            //South West
+            if (grid[j - 1, k + 1].liveNeighbors == 0) 
+            {
+                floodFill(j - 1, k + 1);
+            }
+
+           
+        }
     }
 }
